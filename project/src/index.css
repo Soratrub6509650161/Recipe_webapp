@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Kanit', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+}
+
+p, span, div {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+}
+
+/* Custom styles */
+.recipe-card {
+  @apply bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+}
+
+.recipe-image {
+  @apply w-full h-48 object-cover;
+}
+
+.recipe-content {
+  @apply p-4;
+}
+
+.recipe-title {
+  @apply text-xl font-bold mb-2 text-gray-800;
+}
+
+.recipe-meta {
+  @apply flex items-center text-sm text-gray-600 font-medium;
+}
+
+.recipe-stats {
+  @apply flex items-center space-x-4;
+}
+
+.recipe-stat {
+  @apply flex items-center space-x-1 font-medium;
+}
+
+.recipe-tags {
+  @apply flex flex-wrap gap-2 mt-3;
+}
+
+.recipe-tag {
+  @apply px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
