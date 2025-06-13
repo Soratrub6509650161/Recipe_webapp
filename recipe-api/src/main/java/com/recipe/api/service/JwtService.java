@@ -25,7 +25,10 @@ public class JwtService {
     private long jwtExpiration;
 
     public String generateToken(User user) {
-        return generateToken(new HashMap<>(), user);
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("name", user.getName());
+        claims.put("email", user.getEmail());
+        return generateToken(claims, user);
     }
 
     public String generateToken(Map<String, Object> extraClaims, User user) {

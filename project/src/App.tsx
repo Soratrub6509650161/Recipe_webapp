@@ -5,9 +5,11 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateRecipe from './pages/CreateRecipe';
 import Recipes from './pages/Recipes';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <Layout>
         <Routes>
@@ -19,6 +21,7 @@ function App() {
         </Routes>
       </Layout>
     </Router>
+    </AuthProvider>
   );
 }
 

@@ -4,10 +4,11 @@ import { FaGoogle, FaFacebook } from 'react-icons/fa';
 import AuthLayout from '../components/auth/AuthLayout';
 import SocialLoginButton from '../components/auth/SocialLoginButton';
 import GoogleIcon from '../components/auth/GoogleIcon';
-import { authService } from '../services/api';
+import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -28,7 +29,7 @@ const Login = () => {
     setError('');
     
     try {
-      await authService.login(formData.email, formData.password);
+      await login(formData.email, formData.password);
       navigate('/'); // Redirect to home page after successful login
     } catch (err: any) {
       setError(err.response?.data?.message || 'เกิดข้อผิดพลาดในการเข้าสู่ระบบ');
